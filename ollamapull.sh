@@ -1,11 +1,17 @@
 #!/bin/sh
 
+apk add netcat-openbsd
+apk add screen
+screen -dmS ollama bash -c "/usr/bin/ollama serve; exec bash"
+sleep 10
+ps aux | grep ollama
+
 # 设置 Ollama 服务的检测地址及端口
 HOST="localhost"
 PORT="11434"
 
 # 拉取模型名称
-MODEL_NAME="llama2"
+MODEL_NAME="qwen2.5:0.5b"
 
 # 检测间隔（以秒为单位）
 CHECK_INTERVAL=5
@@ -16,6 +22,8 @@ function is_ollama_running {
     nc -z $HOST $PORT
     return $?
 }
+
+
 
 # 循环检测 ollama 是否启动
 echo "正在检测 Ollama 服务是否已启动..."
