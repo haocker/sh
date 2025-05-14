@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # 设置 Ollama 服务的检测地址及端口
 HOST="localhost"
