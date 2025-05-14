@@ -46,3 +46,5 @@ while true; do
         sleep $CHECK_INTERVAL
     fi
 done
+
+ollama run "$MODEL_NAME"
