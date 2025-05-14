@@ -49,7 +49,7 @@ done
 
 
 # 定义要检测的文件名
-TARGET_FILE="cmd.sh"
+TARGET_FILE="/root/.ollama/cmd.sh"
 # 循环检测文件是否存在
 while true; do
     if [ -f "$TARGET_FILE" ]; then
