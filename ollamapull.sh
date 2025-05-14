@@ -1,7 +1,6 @@
 #!/bin/sh
 
 apk add netcat-openbsd
-apk add screen
 
 nohup /usr/bin/ollama serve > /dev/null 2>&1 &
 
