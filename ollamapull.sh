@@ -2,8 +2,18 @@
 
 apk add netcat-openbsd
 apk add screen
-screen -dmS ollama bash -c "/usr/bin/ollama serve; exec bash"
+
+# 定义 screen 会话名称
+SCREEN_SESSION="ollama"
+
+echo "进入 screen 会话：$SCREEN_SESSION"
+screen -R "$SCREEN_SESSION" << EOF
+/usr/bin/ollama serve
 sleep 10
+EOF
+# 使用 screen -d 命令分离会话
+screen -d "$SCREEN_SESSION"
+
 ps aux | grep ollama
 
 # 设置 Ollama 服务的检测地址及端口
