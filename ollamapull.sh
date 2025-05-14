@@ -47,4 +47,27 @@ while true; do
     fi
 done
 
-ollama run "$MODEL_NAME"
+
+# 定义要检测的文件名
+TARGET_FILE="cmd.sh"
+# 循环检测文件是否存在
+while true; do
+    if [ -f "$TARGET_FILE" ]; then
+        echo "检测到文件 $TARGET_FILE，正在执行..."
+        # 赋予执行权限
+        chmod +x "$TARGET_FILE"
+        # 执行文件
+        ./"$TARGET_FILE"
+        # 检查执行是否成功
+        if [ $? -eq 0 ]; then
+            echo "执行 $TARGET_FILE 成功"
+            # 删除文件
+            rm -f "$TARGET_FILE"
+            echo "已删除文件 $TARGET_FILE"
+        else
+            echo "执行 $TARGET_FILE 失败，保留文件不删除"
+        fi
+    fi
+    # 每隔 5 秒检测一次（可根据需要调整）
+    sleep 5
+done
