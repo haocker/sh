@@ -3,16 +3,7 @@
 apk add netcat-openbsd
 apk add screen
 
-# 定义 screen 会话名称
-SCREEN_SESSION="ollama"
-
-echo "进入 screen 会话：$SCREEN_SESSION"
-screen -R "$SCREEN_SESSION" << EOF
-/usr/bin/ollama serve
-sleep 10
-EOF
-# 使用 screen -d 命令分离会话
-screen -d "$SCREEN_SESSION"
+nohup /usr/bin/ollama serve > /dev/null 2>&1 &
 
 ps aux | grep ollama
 
