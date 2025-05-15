@@ -50,7 +50,7 @@ https_default_cert_file=/conf/server.crt
 https_default_key_file=/conf/server.key
 
 ##bridge
-bridge_type=$MODE
+bridge_type=tcp
 bridge_port=$BRIDGE_PORT
 bridge_ip=0.0.0.0
 
