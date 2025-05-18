@@ -4,6 +4,7 @@ sudo apt update
 sudo apt install -y nodejs
 sudo apt install -y npm
 sudo apt install -y firewalld
+sudo apt install -y screen
 sudo firewall-cmd --reload
 sudo firewall-cmd --add-port=8394/udp --permanent
 sudo firewall-cmd --add-port=8394/tcp --permanent
